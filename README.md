@@ -44,11 +44,11 @@ python3 -m pip install -r requirements.txt
 python3 -m install -r requirements.txt
 python3 app.py
 ```
-![appPY](images/appPY)
+![app](images/appPY.png)
 
 #### When I will then go to the following web address to see if my web app has launched successfully: "http://localhost:5001". If it was successful, then I should see my welcome message.
 
-![welcome](images/welcome)
+![welcomeimage](images/welcome.png)
 
 ## - Creating the Dockerfile - 
 #### A Dockerfile will define how the image is built: base image, working directory, copied files, installed dependencies, exposed port, and startup command. Docker’s Dockerfile overview uses this same structure for Python. In my Dockerfile, I have the following:
@@ -132,11 +132,11 @@ docker build -t flaskapp .
 ```
 #### I have used the -t command to tag the name "flaskapp" to the Docker image to follow best practice.
 
-![build](images/dockerBuild)
+![build](images/dockerBuild.png)
 
 #### As can be seen in the image, the Dockerfile successfully created a Docker image. I can also use the "docker images" command to check this.
 
-![images](images/dockerImages)
+![images](images/dockerImages.png)
 
 ## - Running the Container -
 #### Now that Docker has created the Docker image, I can now use this to create my Docker container. I will do this with the following command.
@@ -153,11 +153,11 @@ docker run -d -p 5001:5001 --name flask-container flaskapp
 ### --name
 - #### I have also used the "--name" command to give a name to the container instead of it having a random ID number; this will make it easier to reference it with commands in CLI. 
 
-![dockerRun](images/dockerRun)
+![dockerRun](images/dockerRun.png)
 
 #### After running the command, I can see that it is working by opening my browser and going to the following: https://localhost:5001
 
-![Running](images/dockerRunning) 
+![Running](images/dockerRunning.png) 
 
 ## - Docker Commands -
 #### Now that I have my container up and running, I can use the following commands.
@@ -167,13 +167,13 @@ docker ps
 ```
 #### This will show the current running containers that I have
 
-![ps](images/dockerps) 
+![ps](images/dockerps.png) 
 
 #### I can also see the current logs by running this command:
 ```
 docker logs flask-container
 ```
-![logs](images/dockerlogs)
+![logs](images/dockerlogs.png)
 
 #### I can also use stop the container very easily using the 'docker stop' command as I gave my container a name so that I could reference it in my CLI.
 
@@ -185,12 +185,12 @@ docker stop flask-container
 ```
 docker rm flask-container
 ```
-![dockerRM](images/dockerrm) 
+![dockerRM](images/dockerrm.png) 
 
 ## - Creating a Docker Hub Repository -
 #### Creating this will allow me to share my projects with others. Everything up until now has all been performed locally. It is not best practice to run containers from your local machine as if my machine fails, then the availability to the container also goes down. By using Docker Hub, I will be able to store my images online and share them with others.
 
-![dockerHub](images/dockerHubRepo)
+![dockerHub](images/dockerHubRepo.png)
 
 
 #### I will now tag my image using the following command. Tagging is important as it helps developers with version control. It also allows us to have multiple versions of images.
@@ -198,14 +198,14 @@ docker rm flask-container
 ```
 docker tag flaskapp cptbarnett101/flaskapp:latest
 ```
-![tag](images/dockerTag) 
+![tag](images/dockerTag.png) 
 
 #### Now that I have tagged the image, I need to push it to Docker Hub with the following command: 
 
 ```
 docker push cptbarnett101/flaskapp:latest
 ```
-![push](images/dockerPush)
+![push](images/dockerPush.png)
 
 ## - Pulling the image from Docker Hub -
 #### To validate that the app works independently of my machine, I will remove my local image to simulate a fresh environment. I will then pull the image from Docker Hub.
@@ -223,7 +223,7 @@ docker rm flask-container
 docker rmi cptbarnett101/flaskapp:latest
 ```
 
-![rmi](images/dockerRMI)
+![rmi](images/dockerRMI.png)
 
 #### Next, I will use the pull command to retrieve the image stored in Docker Hub.
 
@@ -237,14 +237,14 @@ docker pull cptbarnett101/flaskapp:latest
 - The image layers will be downloaded.
 - The image will be reconstructed locally
 
-![pull](images/dockerPull) 
+![pull](images/dockerPull.png) 
 
 #### I will now run the pulled image to see if it has worked as intended. I will do this with the following command:
 
 ```
 docker run -d -p 5001:5001 --name test-container cptbarnett101/flaskapp:latest
 ```
-![remoteTest](images/dockerTestPulled)
+![remoteTest](images/dockerTestPulled.png)
 
 #### As can be seen, my container is running successfully, which means my pulled image has worked successfully. 
 
@@ -261,5 +261,5 @@ docker ps
 docker stop test-container
 ```
 
-![stop](images/dockerStop)
+![stop](images/dockerStop.png)
 
