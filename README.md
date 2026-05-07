@@ -153,7 +153,7 @@ docker run -d -p 5001:5001 --name flask-container flaskapp
 ### --name
 - #### I have also used the "--name" command to give a name to the container instead of it having a random ID number; this will make it easier to reference it with commands in CLI. 
 
-![dockerRun](images/)
+![dockerRun](images/dockerRun)
 
 #### After running the command, I can see that it is working by opening my browser and going to the following: https://localhost:5001
 
