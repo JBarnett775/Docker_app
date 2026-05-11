@@ -244,7 +244,7 @@ docker pull cptbarnett101/flaskapp:latest
 ```
 docker run -d -p 5001:5001 --name test-container cptbarnett101/flaskapp:latest
 ```
-![remoteTest](images/dockerTestPulled.png)
+![remoteTest](images/remoteTestPulled.png)
 
 #### As can be seen, my container is running successfully, which means my pulled image has worked successfully. 
 
